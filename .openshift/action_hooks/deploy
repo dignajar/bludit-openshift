@@ -1,0 +1,3 @@
+echo "Downloading Bludit Installer"
+curl -o $OPENSHIFT_REPO_DIR/bludit_latest.zip http://www.bludit.com/bludit_latest.zip
+unzip $OPENSHIFT_REPO_DIR/bludit_latest.zip
