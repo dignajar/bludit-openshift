@@ -1,5 +1,21 @@
-echo "Downloading Bludit Installer"
-curl -o $OPENSHIFT_REPO_DIR/bludit_latest.zip http://www.bludit.com/bludit_latest.zip
-unzip $OPENSHIFT_REPO_DIR/bludit_latest.zip -d $OPENSHIFT_REPO_DIR
-rm $OPENSHIFT_REPO_DIR/bludit_latest.zip
-mv $OPENSHIFT_REPO_DIR/bludit/* $OPENSHIFT_REPO_DIR/
+#!/bin/bash
+
+# Download the latest version
+echo "Downloading Bludit"
+curl --silent -o "$OPENSHIFT_REPO_DIR"bludit_latest.zip http://www.bludit.com/bludit_latest.zip
+
+# Unzip
+echo "Unzip files"
+unzip "$OPENSHIFT_REPO_DIR"bludit_latest.zip -d $OPENSHIFT_REPO_DIR
+
+# Move all files, included the .htaccess
+echo "Moving files and directories"
+shopt -s dotglob
+mv "$OPENSHIFT_REPO_DIR"bludit/* $OPENSHIFT_REPO_DIR
+
+# Clean system
+echo "Cleaning system"
+rm "$OPENSHIFT_REPO_DIR"bludit_latest.zip
+rm -r "$OPENSHIFT_REPO_DIR"bludit
+
+echo "Finish the installation on http://$OPENSHIFT_APP_DNS"
