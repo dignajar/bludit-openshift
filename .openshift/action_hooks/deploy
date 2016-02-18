@@ -2,7 +2,7 @@
 
 # Download the latest version
 echo "Downloading Bludit"
-curl --silent -o "$OPENSHIFT_REPO_DIR"bludit_latest.zip http://www.bludit.com/bludit_latest.zip
+curl --silent -o "$OPENSHIFT_REPO_DIR"bludit_latest.zip https://s3.amazonaws.com/bludit-s3/bludit-builds/bludit_latest.zip
 
 # Unzip
 echo "Unzip files"
